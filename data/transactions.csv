@@ -1,0 +1,16 @@
+transaction_id,user_id,country,transaction_date,transaction_type,amount
+T1001,U001, egypt ,2026-01-05,purchase,150.00
+T1002,U002,USA,2026-01-05,purchase,89.99
+T1003,U001,EGYPT,2026-01-06,refund,-25.50
+T1004,U003, Egypt,2026-01-06,purchase,42.00
+T1005,,USA,2026-01-06,purchase,60.00
+T1006,U004,uae ,2026-01-07,purchase,200.00
+T1007,U002,usa,2026-01-07,refund,-15.00
+T1008,U005,EGYPT,,purchase,75.25
+T1009,U003,egypt,2026-01-07,purchase,-30.00
+T1010,U006, UAE,2026-01-08,refund,20.00
+T1011,U004,UAE,2026-01-08,purchase,120.00
+T1012,U007,Germany,2026-01-08,purchase,55.75
+,U008,USA,2026-01-08,purchase,99.00
+T1014,U005,egypt ,2026-01-09,refund,-10.00
+T1015,U006,uae,2026-01-09,purchase,300.00
