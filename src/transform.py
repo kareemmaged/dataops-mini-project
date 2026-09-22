@@ -15,7 +15,11 @@ def is_valid_record(row):
     """Reject rows missing transaction_id, user_id, or transaction_date."""
     for field in REQUIRED_FIELDS:
         val = row.get(field)
-        if val is None or (isinstance(val, float) and pd.isna(val)) or str(val).strip() == "":
+        if (
+            val is None
+            or (isinstance(val, float) and pd.isna(val))
+            or str(val).strip() == ""
+        ):
             return False
     return True
 
@@ -23,7 +27,7 @@ def is_valid_record(row):
 def is_valid_amount(transaction_type, amount):
     """Purchases must be positive, refunds must be negative."""
     if transaction_type == "purchase":
-        return amount > 0
+        return amount < 0
     if transaction_type == "refund":
         return amount < 0
     return False
@@ -39,9 +43,7 @@ def load_and_clean(csv_path):
 
     # Drop rows with invalid amount/type combinations
     df = df[
-        df.apply(
-            lambda r: is_valid_amount(r["transaction_type"], r["amount"]), axis=1
-        )
+        df.apply(lambda r: is_valid_amount(r["transaction_type"], r["amount"]), axis=1)
     ]
 
     return df.reset_index(drop=True)
